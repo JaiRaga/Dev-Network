@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const { Schema } = mongoose;
 
+const Profile = require("./Profile");
+
 const userSchema = new Schema(
   {
     name: {
@@ -69,6 +71,12 @@ userSchema.pre("save", async function(next) {
     user.password = await bcrypt.hash(user.password, 9);
   }
 
+  next();
+});
+
+userSchema.pre("remove", async function(next) {
+  const user = this;
+  await Profile.deleteOne({ user: user._id });
   next();
 });
 
