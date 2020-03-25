@@ -7,7 +7,7 @@ import { GET_PROFILE, PROFILE_ERROR } from "./types";
 export const getCurrentUserProfile = () => async dispatch => {
   try {
     const res = await axios.get("/api/profile/me");
-    console.log(res);
+
     dispatch({
       type: GET_PROFILE,
       payload: res.data
