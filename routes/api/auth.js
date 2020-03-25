@@ -8,7 +8,8 @@ const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
   try {
-    res.send(req.user);
+    const user = await User.findById(req.user.id).select("-password");
+    res.send(user);
   } catch (err) {
     console.log(err.message);
     res.status(500).send("Server Error");

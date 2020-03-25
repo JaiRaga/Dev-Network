@@ -56,8 +56,7 @@ router.post(
 
       // returns jwt
       const token = await user.generateAuthToken();
-
-      res.send({ user, token });
+      res.send({ token });
     } catch (err) {
       console.log(err.message);
       res.status(500).send("Server error");
