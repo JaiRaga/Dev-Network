@@ -177,7 +177,7 @@ router.patch(
       check("degree", "Degree is required")
         .not()
         .isEmpty(),
-      check("field", "Field of study is required")
+      check("fieldofstudy", "Field of study is required")
         .not()
         .isEmpty(),
       check("from", "From date is required")
@@ -193,6 +193,7 @@ router.patch(
     }
 
     const newEdu = { ...req.body };
+    console.log(newEdu);
 
     try {
       const profile = await Profile.findOne({ user: req.user.id });
