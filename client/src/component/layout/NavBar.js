@@ -8,18 +8,21 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/profiles">Developers</Link>
+        <Link to='/profiles'>Developers</Link>
       </li>
       <li>
-        <Link to="/dashboard">
-          <i className="fas fa-user" />{" "}
-          <span className="hide-sm">Dashboard</span>
+        <Link to='/posts'>Posts</Link>
+      </li>
+      <li>
+        <Link to='/dashboard'>
+          <i className='fas fa-user' />{" "}
+          <span className='hide-sm'>Dashboard</span>
         </Link>
       </li>
       <li>
-        <a onClick={logout} href="#!">
-          <i className="fas fa-sign-out-alt" />{" "}
-          <span className="hide-sm">Logout</span>
+        <a onClick={logout} href='#!'>
+          <i className='fas fa-sign-out-alt' />{" "}
+          <span className='hide-sm'>Logout</span>
         </a>
       </li>
     </ul>
@@ -28,23 +31,23 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/profiles">Developers</Link>
+        <Link to='/profiles'>Developers</Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to='/register'>Register</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to='/login'>Login</Link>
       </li>
     </ul>
   );
 
   return (
     <div>
-      <nav className="navbar bg-dark">
+      <nav className='navbar bg-dark'>
         <h1>
-          <Link to="/">
-            <i className="fa fa-spinner"></i> DevNet_
+          <Link to='/'>
+            <i className='fa fa-spinner'></i> DevNet_
           </Link>
         </h1>
         {!loading && (
@@ -60,7 +63,7 @@ NavBar.propTypes = {
   auth: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
